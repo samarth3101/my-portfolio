@@ -1,0 +1,424 @@
+// styles/ProfessionalSection.module.scss - FIXED NODE ALIGNMENT
+
+.professionalPath {
+  margin-top: 2rem;
+  position: relative;
+  width: 100%;
+  padding: var(--spacing-3xl) 0;
+  background: #ffffff;
+  font-family: var(--font-family-primary);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+// PROFESSIONAL HEADER
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: var(--font-weight-bold);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #8b1c1c 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #6b7280;
+  max-width: 550px;
+  margin: 0 auto;
+  line-height: 1.4;
+  font-weight: var(--font-weight-medium);
+}
+
+// TIMELINE STRUCTURE - FIXED ALIGNMENT
+.timelineWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  padding-left: 30px; // Adjusted for perfect alignment
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 15px; // Center of the timeline (30px / 2 = 15px)
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, 
+      var(--color-primary) 0%, 
+      rgba(161, 43, 43, 0.6) 50%,
+      rgba(161, 43, 43, 0.2) 100%
+    );
+    border-radius: 1px;
+  }
+}
+
+// SECTION HEADERS
+.sectionHeader {
+  margin: var(--spacing-xl) 0 var(--spacing-md) 0;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  background: #ffffff;
+  padding: 4px var(--spacing-sm);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(161, 43, 43, 0.15);
+  box-shadow: 0 1px 3px rgba(161, 43, 43, 0.08);
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+}
+
+// TIMELINE ENTRIES - PERFECTLY CENTERED NODES
+.entry {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  
+  &.current {
+    .marker {
+      width: 16px;
+      height: 16px;
+      left: -23px; // Perfect center: -(30px - 15px + 8px) = -23px
+      background: linear-gradient(135deg, var(--color-primary) 0%, #8b1c1c 100%);
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 8px rgba(161, 43, 43, 0.3);
+    }
+  }
+}
+
+.marker {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #8b1c1c 100%);
+  border: 2px solid #ffffff;
+  position: absolute;
+  top: 10px;
+  left: -21px; // Perfect center: -(30px - 15px + 6px) = -21px
+  z-index: 3;
+  box-shadow: 0 1px 3px rgba(161, 43, 43, 0.2);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  
+  svg {
+    width: 6px;
+    height: 6px;
+  }
+  
+  &.currentMarker {
+    svg {
+      width: 8px;
+      height: 8px;
+    }
+  }
+  
+  &.degreeMarker {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    
+    &.doctorate {
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    }
+    
+    &.masters {
+      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+    }
+    
+    &.bachelor {
+      background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    }
+    
+    &.diploma {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    }
+  }
+}
+
+// PROFESSIONAL COMPACT CARDS
+.card {
+  background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-left: var(--spacing-xs);
+  width: 100%;
+  position: relative;
+  transition: all 0.2s ease;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, var(--color-primary));
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.2s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(161, 43, 43, 0.06);
+    border-color: rgba(161, 43, 43, 0.15);
+    
+    &::before {
+      transform: scaleY(1);
+    }
+    
+    .roleTitle {
+      color: var(--color-primary);
+    }
+  }
+  
+  &.degreeCard {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    border-color: #cbd5e1;
+    
+    &:hover {
+      border-color: #94a3b8;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.06);
+    }
+  }
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-xs);
+  gap: var(--spacing-sm);
+}
+
+.titleGroup {
+  flex: 1;
+}
+
+// COMPACT PROFESSIONAL TEXT
+.roleTitle {
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-bold);
+  color: #1f2937;
+  line-height: 1.3;
+  margin: 0 0 2px 0;
+  transition: color 0.2s ease;
+}
+
+.roleOrg {
+  font-size: 0.8rem;
+  color: #374151;
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.roleDates {
+  font-size: 0.7rem;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  background: rgba(161, 43, 43, 0.08);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(161, 43, 43, 0.12);
+  white-space: nowrap;
+  font-style: italic;
+}
+
+// COMPACT HIGHLIGHTS
+.highlights {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+  li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 3px;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    color: #4b5563;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.highlightBullet {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  margin-right: 6px;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+// EDUCATION DIVIDER
+.qualDivider {
+  text-align: center;
+  margin: var(--spacing-xl) 0 var(--spacing-md) 0;
+  position: relative;
+  
+  &::before,
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(161, 43, 43, 0.2), transparent);
+    vertical-align: middle;
+    margin: 0 var(--spacing-sm);
+  }
+}
+
+.qualDividerText {
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-bold);
+  background: #ffffff;
+  color: var(--color-primary);
+  padding: 4px var(--spacing-sm);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(161, 43, 43, 0.15);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 1px 3px rgba(161, 43, 43, 0.08);
+}
+
+/* ======================= RESPONSIVE DESIGN - FIXED ======================= */
+@media (max-width: 768px) {
+  .professionalPath {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .timeline {
+    padding-left: 26px;
+    
+    &::before {
+      left: 13px; // Center: 26px / 2 = 13px
+    }
+  }
+  
+  .marker {
+    width: 10px;
+    height: 10px;
+    left: -18px; // Perfect center: -(26px - 13px + 5px) = -18px
+    
+    svg {
+      width: 5px;
+      height: 5px;
+    }
+    
+    &.currentMarker {
+      width: 14px;
+      height: 14px;
+      left: -20px; // Perfect center: -(26px - 13px + 7px) = -20px
+      
+      svg {
+        width: 7px;
+        height: 7px;
+      }
+    }
+  }
+  
+  .card {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  
+  .roleTitle {
+    font-size: 0.85rem;
+  }
+  
+  .roleOrg {
+    font-size: 0.75rem;
+  }
+  
+  .roleDates {
+    font-size: 0.65rem;
+  }
+  
+  .highlights {
+    li {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .timeline {
+    padding-left: 22px;
+    
+    &::before {
+      left: 11px; // Center: 22px / 2 = 11px
+    }
+  }
+  
+  .marker {
+    width: 8px;
+    height: 8px;
+    left: -15px; // Perfect center: -(22px - 11px + 4px) = -15px
+    
+    &.currentMarker {
+      width: 12px;
+      height: 12px;
+      left: -17px; // Perfect center: -(22px - 11px + 6px) = -17px
+    }
+  }
+  
+  .card {
+    padding: 6px var(--spacing-xs);
+  }
+  
+  .sectionTitle {
+    font-size: 0.85rem;
+    padding: 2px 6px;
+  }
+  
+  .qualDividerText {
+    font-size: 0.85rem;
+    padding: 2px 6px;
+  }
+}

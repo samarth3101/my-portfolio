@@ -1,0 +1,374 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  padding-top: 0;
+}
+
+.notchContainer {
+  position: relative;
+  top: 0;
+}
+
+.notch {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  width: fit-content;
+  max-width: 95vw;
+  height: 50px;
+  border-radius: 0 0 25px 25px;
+  box-shadow: 0 4px 20px rgba(161, 43, 43, 0.12);
+  border: 1px solid rgba(161, 43, 43, 0.08);
+  border-top: none;
+  position: relative;
+  
+  .navbar.scrolled & {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 6px 30px rgba(161, 43, 43, 0.15);
+    border-color: rgba(161, 43, 43, 0.12);
+    
+    &::before,
+    &::after {
+      box-shadow: 0 25px 0 0 rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+.notchContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 20px;
+  gap: 16px;
+}
+
+.navLinksContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+
+.navLink {
+  background: none;
+  border: none;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgb(55, 65, 81);
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  min-width: fit-content;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgb(161, 43, 43) 0%, rgb(111, 31, 31) 100%);
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+  }
+  
+  &:hover {
+    color: rgb(161, 43, 43);
+    background: rgba(161, 43, 43, 0.05);
+    transform: translateY(-1px);
+  }
+  
+  &.active {
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(161, 43, 43, 0.3);
+    
+    &::before {
+      left: 0;
+    }
+  }
+}
+
+// Download CV Button - Desktop (unchanged)
+.downloadCVButton {
+  background: linear-gradient(135deg, rgb(161, 43, 43) 0%, rgb(111, 31, 31) 100%);
+  border: none;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  min-width: fit-content;
+  flex-shrink: 0;
+  
+  &:hover {
+    background: linear-gradient(135deg, rgb(181, 63, 63) 0%, rgb(131, 51, 51) 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(161, 43, 43, 0.3);
+  }
+}
+
+// MOBILE - Clean Hamburger Without Side Pieces
+.mobileNav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hamburgerButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgb(161, 43, 43) 0%, rgb(111, 31, 31) 100%);
+  border: none;
+  border-radius: 0 0 20px 20px;
+  padding: 18px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(161, 43, 43, 0.2);
+  position: relative;
+  margin-top: -10px;
+  
+  &:hover {
+    box-shadow: 0 6px 24px rgba(161, 43, 43, 0.3);
+  }
+}
+
+// Pure Hamburger Icon
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 22px;
+  height: 18px;
+  position: relative;
+}
+
+.line {
+  width: 22px;
+  height: 2.5px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform-origin: center;
+  
+  &:nth-child(1) {
+    margin-bottom: 5px;
+  }
+  
+  &:nth-child(2) {
+    margin-bottom: 5px;
+  }
+}
+
+// Cross Animation when Open
+.hamburgerButton.open {
+  .line {
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    &:nth-child(2) {
+      opacity: 0;
+      transform: scale(0);
+    }
+    
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+  }
+}
+
+// Drawer
+.drawer {
+  width: 100%;
+  max-width: 350px;
+  background: white;
+  border: 1px solid rgba(161, 43, 43, 0.08);
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 8px 32px rgba(161, 43, 43, 0.12);
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  margin-top: -1px;
+  
+  &.open {
+    height: auto;
+    opacity: 1;
+  }
+}
+
+.drawerContent {
+  padding: 20px 0;
+}
+
+.drawerLink {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(55, 65, 81);
+  cursor: pointer;
+  padding: 16px 24px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(161, 43, 43, 0.03);
+  position: relative;
+  overflow: hidden;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgb(161, 43, 43) 0%, rgb(111, 31, 31) 100%);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+  }
+  
+  &:hover {
+    background: rgba(161, 43, 43, 0.03);
+    color: rgb(161, 43, 43);
+  }
+  
+  &.active {
+    color: white;
+    font-weight: 600;
+    
+    &::before {
+      left: 0;
+    }
+  }
+}
+
+// Download CV Button - Mobile (unchanged)
+.downloadCVButtonMobile {
+  display: block;
+  width: calc(100% - 48px);
+  margin: 16px 24px 0 24px;
+  background: linear-gradient(135deg, rgb(161, 43, 43) 0%, rgb(111, 31, 31) 100%);
+  border: none;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  padding: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  
+  &:hover {
+    background: linear-gradient(135deg, rgb(181, 63, 63) 0%, rgb(131, 51, 51) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(161, 43, 43, 0.3);
+  }
+}
+
+// RESPONSIVE
+@media (max-width: 1200px) {
+  .navLink {
+    font-size: 0.75rem;
+    padding: 7px 10px;
+  }
+  
+  .downloadCVButton {
+    font-size: 0.75rem;
+    padding: 7px 14px;
+  }
+  
+  .navLinksContainer {
+    gap: 2px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .navLink {
+    font-size: 0.7rem;
+    padding: 6px 8px;
+  }
+  
+  .downloadCVButton {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+  
+  .notchContent {
+    padding: 0 16px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+  
+  .mobileNav {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .drawer {
+    max-width: 320px;
+  }
+  
+  .hamburgerButton {
+    padding: 16px 22px;
+  }
+  
+  .hamburger {
+    width: 20px;
+    height: 16px;
+  }
+  
+  .line {
+    width: 20px;
+    height: 2px;
+  }
+  
+  .drawerLink {
+    padding: 14px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .downloadCVButtonMobile {
+    margin: 12px 20px 0 20px;
+    width: calc(100% - 40px);
+    padding: 14px;
+    font-size: 0.95rem;
+  }
+}

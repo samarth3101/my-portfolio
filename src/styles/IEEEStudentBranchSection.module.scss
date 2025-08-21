@@ -1,0 +1,627 @@
+.section {
+  position: relative;
+  width: 100%;
+  // background: linear-gradient(135deg, #f8faff 0%, #e8f2ff 50%, #dce8ff 100%);
+  background: #ffffff;
+  font-family: var(--font-family-primary);
+  padding: 4rem 0;
+  overflow: hidden;
+  margin-top: 3rem;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(0, 98, 155, 0.02) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(0, 98, 155, 0.03) 0%, transparent 50%);
+    z-index: 1;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 2rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* ======================= HEADER ======================= */
+.header {
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #00629b 0%, #0077be 50%, #008cdc 100%);
+  color: white;
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255, 255, 255, 0.05) 17px);
+    opacity: 0.3;
+  }
+}
+
+.ieeeLogo {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  line-height: 1.1;
+  position: relative;
+  z-index: 2;
+}
+
+.tagline {
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  font-style: italic;
+  opacity: 0.95;
+  position: relative;
+  z-index: 2;
+}
+
+.subtitle {
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  margin: 0 0 1.5rem 0;
+  opacity: 0.9;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.establishment {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+}
+
+/* ======================= ABOUT - PERFECT SIDE BY SIDE ======================= */
+.about {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 8px 25px rgba(0, 98, 155, 0.08);
+  overflow: hidden;
+}
+
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  min-height: 450px;
+}
+
+.aboutText,
+.aboutTextRight {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.aboutText {
+  border-right: 1px solid rgba(0, 98, 155, 0.1);
+}
+
+.sectionTitle {
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #00629b;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+  position: relative;
+  
+
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #374151;
+  margin: 0 0 1.5rem 0;
+}
+
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #00629b, #008cdc);
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 98, 155, 0.25);
+  align-self: flex-start;
+  margin-top: 1rem;
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 98, 155, 0.35);
+    
+    svg {
+      transform: translateX(2px);
+    }
+  }
+}
+
+/* ======================= OBJECTIVES - CLEAN 4 COLUMNS ======================= */
+.objectives {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.objectivesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.objectiveCard {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 98, 155, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 98, 155, 0.03);
+  position: relative;
+  overflow: hidden;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #00629b, #008cdc);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 98, 155, 0.06);
+    
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  background: rgba(0, 98, 155, 0.1);
+  color: #00629b;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 0.75rem 0;
+  transition: all 0.3s ease;
+}
+
+.cardTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #00629b;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.cardDesc {
+  font-size: 0.75rem;
+  color: #374151;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ======================= ACHIEVEMENTS - CLEAN & ENHANCED ======================= */
+.achievements {
+  margin-bottom: 4rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.achievements .sectionTitle {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  margin-bottom: 2.5rem;
+}
+
+.carousel {
+  position: relative;
+  max-width: 800px;
+  margin: 2.5rem auto 0;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background: transparent; /* Remove any background shadows */
+  box-shadow: none; /* Remove box shadow completely */
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.6s ease;
+  background: transparent; /* Ensure track has no background */
+}
+
+.slide {
+  flex: 0 0 100%;
+  padding: 0; /* Remove any padding that might cause lines */
+}
+
+.achievementCard {
+  background: #ffffff; /* Pure white background */
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(0, 98, 155, 0.06); /* Very subtle border */
+  margin: 0; /* Remove margin to prevent floating lines */
+  box-shadow: 0 4px 16px rgba(0, 98, 155, 0.04); /* Subtle, clean shadow */
+  position: relative;
+  
+  /* Remove any pseudo-elements that might cause lines */
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+.achievementImage {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: #f8f9fa; /* Fallback background */
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border: none; /* Remove any image borders */
+    outline: none; /* Remove outlines */
+    box-shadow: none; /* Remove image shadows */
+  }
+  
+  &:hover img {
+    transform: scale(1.02); /* Subtle hover effect */
+  }
+}
+
+.year {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 98, 155, 0.95);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border: none;
+}
+
+.achievementContent {
+  padding: 2rem;
+  background: #ffffff; /* Ensure content background is clean */
+}
+
+.achievementTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #00629b;
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+
+.achievementDesc {
+  font-size: 1rem;
+  color: #4a5568; /* Slightly softer text color */
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ======================= CLEAN NAVIGATION DOTS ======================= */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 0; /* Remove any padding */
+  background: transparent; /* Ensure transparent background */
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 98, 155, 0.2); /* Clean border instead of fill */
+  background: transparent; /* Transparent by default */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none; /* Remove focus outline */
+  
+  &.active {
+    background: #00629b; /* Fill when active */
+    border-color: #00629b;
+    transform: scale(1.2);
+    box-shadow: 0 0 8px rgba(0, 98, 155, 0.3);
+  }
+  
+  &:hover:not(.active) {
+    border-color: rgba(0, 98, 155, 0.4);
+    background: rgba(0, 98, 155, 0.1);
+    transform: scale(1.1);
+  }
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+/* ======================= BANNER ======================= */
+.banner {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: white;
+  padding: 3rem;
+  border-radius: 1rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+    opacity: 0.5;
+  }
+}
+
+.bannerTitle {
+  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.bannerSubtitle {
+  font-size: 1rem;
+  margin: 0 0 2rem 0;
+  opacity: 0.9;
+  font-style: italic;
+  position: relative;
+  z-index: 2;
+}
+
+.bannerStats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.stat {
+  text-align: center;
+}
+
+.statNumber {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #00d4ff;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bannerCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 2;
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    
+    svg {
+      transform: translateX(3px);
+    }
+  }
+}
+
+/* ======================= RESPONSIVE ======================= */
+@media (max-width: 1024px) {
+  .aboutContent {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .aboutText {
+    order: 1;
+    padding: 2.5rem;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 98, 155, 0.1);
+  }
+  
+  .aboutTextRight {
+    order: 2;
+    padding: 2.5rem;
+  }
+  
+  .objectivesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .carousel {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .header {
+    padding: 2rem 0;
+  }
+  
+  .aboutText,
+  .aboutTextRight {
+    padding: 2rem;
+  }
+  
+  .objectivesGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .objectiveCard {
+    padding: 1.5rem;
+    min-height: 140px;
+  }
+  
+  .carousel {
+    max-width: 100%;
+    margin: 2rem auto 0;
+    border-radius: 1rem; /* Smaller border radius on mobile */
+  }
+  
+  .achievementCard {
+    border-radius: 1rem; /* Match carousel radius */
+  }
+  
+  .achievementImage {
+    height: 180px;
+  }
+  
+  .achievementContent {
+    padding: 1.5rem;
+  }
+  
+  .achievementTitle {
+    font-size: 1.2rem;
+  }
+  
+  .achievementDesc {
+    font-size: 0.9rem;
+  }
+  
+  .bannerStats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievements,
+  .objectives,
+  .banner {
+    margin-bottom: 2rem;
+  }
+  
+  .objectiveCard {
+    min-height: 120px;
+    padding: 1rem;
+  }
+  
+  .cardTitle {
+    font-size: 0.9rem;
+  }
+  
+  .cardDesc {
+    font-size: 0.7rem;
+  }
+  
+  .achievementImage {
+    height: 160px;
+  }
+  
+  .aboutContent {
+    min-height: auto;
+  }
+}
