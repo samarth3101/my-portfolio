@@ -35,7 +35,7 @@ const ResearchSection: React.FC = () => {
   const contentRef = useRef<HTMLDivElement>(null);
 
   const researchStats = {
-    citations: 65,
+    citations: 125,
     hIndex: 4,
     i10Index: 3,
     publications: 23,
